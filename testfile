@@ -1,0 +1,166 @@
+//Lab 3, Change Calculator
+//Programmer: Samantha Cuellar
+//Editor(s) used: JNotePad 2
+//Compiler(s) used: XCode 4.6
+
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::ios;
+using std::endl;
+
+#include <iomanip>
+using std::setprecision;
+
+int main()
+{
+    //Step 1 of 5: Getting Started - print my name and this assignment's title
+    cout << "Lab 3, Change Calculator\n";
+    cout << "Programmer: Samantha Cuellar\n";
+    cout << "Editor(s) used: JNotePad 2\n";
+    cout << "Compiler(s) used: XCode 4.6\n";
+    cout << endl;
+    
+    float purchaseAmount;
+    float amountTendered;
+    
+    //Step 2 of 5: Collecting Input
+    cout << "Enter the purchase amount and the amount tendered:" << endl;
+    cin >> purchaseAmount >> amountTendered;
+    cin.ignore(0, ' ');
+    cout << endl;
+    
+    //Steps 3-4 of 5: Producing Output & Solving the Problem
+    float change = (amountTendered - purchaseAmount);
+    float changeRemaining = change;
+    
+    //If statement in case purchase amount is greater than amount tendered
+    if (change <= -1)
+    {
+        cout << "Purchase amount is greater than amount tendered" << endl;
+        return -1;
+    }
+    
+    int fifties = 0;
+    while (changeRemaining >= 49.9)
+    {
+        fifties++;
+        changeRemaining = changeRemaining - 50.0;
+    }
+    
+    int twenties = 0;
+    while (changeRemaining >= 19.9)
+    {
+        twenties++;
+        changeRemaining = changeRemaining - 20.0;
+    }
+    
+    int tens = 0;
+    while (changeRemaining >= 9.9)
+    {
+        tens++;
+        changeRemaining = changeRemaining - 10.0;
+    }
+    
+    int fives = 0;
+    while (changeRemaining >= 4.9)
+    {
+        
+        fives++;
+        changeRemaining = changeRemaining - 5.0;
+    }
+    
+    int ones = 0;
+    while (changeRemaining >= 0.9)
+    {
+        ones++;
+        changeRemaining = changeRemaining - 1.0;
+    }
+    
+    int halfDollars = 0;
+    while (changeRemaining >= 0.499)
+    {
+        halfDollars++;
+        changeRemaining = changeRemaining - 0.50;
+    }
+    
+    int quarters = 0;
+    while (changeRemaining >= 0.199)
+    {
+        quarters++;
+        changeRemaining = changeRemaining - 0.25;
+    }
+    
+    int dimes = 0;
+    while (changeRemaining >= 0.099)
+    {
+        dimes++;
+        changeRemaining = changeRemaining - 0.10;
+    }
+    
+    int nickels = 0;
+    while (changeRemaining >= 0.049)
+    {
+        nickels++;
+        changeRemaining = changeRemaining - 0.05;
+    }
+    
+    int pennies = 0;
+    while (changeRemaining >= 0.009)
+    {
+        pennies++;
+        changeRemaining = changeRemaining - 0.01;
+    }
+    
+    cout << "ChangeRemaining:" << changeRemaining << endl;
+    
+    //Step 5 of 5: Final Formatting
+    
+    cout.setf(ios::fixed|ios::showpoint);
+    cout << setprecision(2);
+    
+    cout << "Output:\n" << endl;
+    cout << "$" << change << "\n";
+    
+    if (fifties > 0)
+    {
+        cout << fifties << " $50 bill" << (fifties > 1 ? "s" : "") << endl;
+    }
+    if (twenties > 0)
+    {
+        cout << twenties << " $20 bill" << (twenties > 1 ? "s" : "") << endl;
+    }
+    if (tens > 0)
+    {
+        cout << tens << " $10 bill" << (tens > 1 ? "s" : "") << endl;
+    }
+    if (fives > 0)
+    {
+        cout << fives << " $5 bill" << (fives > 1 ? "s" : "") << endl;
+    }
+    if (ones > 0)
+    {
+        cout << ones << " $1 bill" << (ones > 1 ? "s" : "") << endl;
+    }
+    if (halfDollars > 0)
+    {
+        cout << halfDollars << " 50-cent coin" << (halfDollars > 1 ? "s" : "") << endl;
+    }
+    if (quarters > 0)
+    {
+        cout << quarters << " 25-cent coin" << (quarters > 1 ? "s" : "") << endl;
+    }
+    if (dimes > 0)
+    {
+        cout << dimes << " 10-cent coin" << (dimes > 1 ? "s" : "") << endl;
+    }
+    if (nickels > 0)
+    {
+        cout << nickels << " 5-cent coin" << (nickels > 1 ? "s" : "") << endl;
+    }
+    if (pennies > 0)
+    {
+        cout << pennies << " 1-cent coin" << (pennies > 1 ? "s" : "") << endl;
+    }
+    
+}  //end main
